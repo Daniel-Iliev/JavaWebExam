@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Register</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+      <form class="form-signin" action="#" th:action="@{/adduser}" th:object="${user}" method="post">
+        <h2 class="form-signin-heading">Register</h2>
+        <p>
+            <label for="email" class="col-form-label">Username</label>
+            <input type="text" th:field="*{username}" class="form-control" id="username" placeholder="Username">
+            <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="text-danger"></span>
+        </p>
+        <p>
+            <label for="email" class="col-form-label">Password</label>
+            <input type="text" th:field="*{password}" class="form-control" id="password" placeholder="Password">
+            <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="text-danger"></span>
+        </p>
+        <button type="submit" class="btn btn-lg btn-primary btn-block">Register</button>
+      </form>
+    </div>
+  </body>
+</html>
